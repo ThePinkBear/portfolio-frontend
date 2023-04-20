@@ -36,7 +36,7 @@ function App() {
       <p className="read-the-docs">
         This portfolio page is under construction, check back later!
       </p>
-        <p>can we reach the backend:</p>
+        <p>can we reach the backend?:</p>
       <div>
         {myApi && (
           <div>
