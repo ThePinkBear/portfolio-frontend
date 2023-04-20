@@ -10,12 +10,15 @@ interface Item {
 
 function App() {
 
-  const [myApi, setMyApi] = useState<Item[]>([]);
+  const [myApi, setMyApi] = useState<Item | null>(null);
 
   useEffect(() => {
-    fetch("https://pinkbear-portfolio-backend.azurewebsites.net/portfoliobackend")
-    .then(response => response.json())
-    .then(data => setMyApi(data));
+    const fetchData = async () => {
+      fetch("https://pinkbear-portfolio-backend.azurewebsites.net/portfoliobackend")
+      .then(response => response.json())
+      .then(data => setMyApi(data));
+    }
+    fetchData();
   }, []);
 
   return (
@@ -33,12 +36,13 @@ function App() {
       <p className="read-the-docs">
         This portfolio page is under construction, check back later!
       </p>
+        <p>can we reach the backend:</p>
       <div>
-        {myApi.map((item: Item) => (
-          <div key={item.id}>
-            <h3>{item.text}</h3>
+        {myApi && (
+          <div>
+            <h2>{myApi.text}</h2>
           </div>
-        ))}
+        )}
       </div>
     </div>
   )
