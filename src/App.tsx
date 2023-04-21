@@ -24,8 +24,7 @@ function App() {
   return (
     <div className="App">
       <div>
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-          <img src={reactLogo} className="logo react" alt="React logo" />
+          <img src="/src/images/pp_bw.JPG" className="image" alt="A picture of me facing the camera." />
       </div>
       <h1>Björn Noctiluca</h1>
       <div className="card">
