@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import './App.css'
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import './App.css';
 
 interface Item {
   id: number;
@@ -9,22 +9,16 @@ interface Item {
 }
 
 function PinkBear() {
-
-
-  const [myApi, setMyApi] = useState<Item[]>([]);
-  
+  const [myApi, setMyApi] = useState<Item[] >([]);
+  const API_URL = (import.meta.env.VITE_API_URL as string);
   useEffect(() => {
     const fetchData = () => {
-      fetch("https://pinkbear-portfolio-backend.azurewebsites.net/api/texts")
+      fetch(`https://${API_URL}/texts`)
         .then(response => response.json())
         .then(data => setMyApi(data));
     }
     fetchData();
-  }, []);
-
-    console.log(myApi.map(item => item.name));
-    
-
+  }, []);    
   return (
     <div className="App">
       <div>
