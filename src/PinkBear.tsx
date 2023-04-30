@@ -22,7 +22,7 @@ function PinkBear() {
   return (
     <div className="App">
       <div>
-        <img src="src/images/pp-bw.JPG" className="image" alt="A picture of me facing the camera." />
+        <img src="src/images/pp-bw.JPG" className="image" alt="A picture will come." />
       </div>
       <h1>Björn Noctiluca</h1>
       <div className="card">
