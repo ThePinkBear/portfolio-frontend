@@ -22,7 +22,7 @@ function PinkBear() {
   return (
     <div className="App">
       <div>
-        <img src="src/images/pp-bw.JPG" className="image" alt="A picture will come." />
+        <img src="https://mknawqiahttnfewbzfzq.supabase.co/storage/v1/object/sign/portfolio-images-pinkbear/pp_bw.JPG?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJwb3J0Zm9saW8taW1hZ2VzLXBpbmtiZWFyL3BwX2J3LkpQRyIsImlhdCI6MTY4MzA0Mzc3NCwiZXhwIjoxNzE0NTc5Nzc0fQ.RZhTzbQObe4vPTYCc2ssrCd8u1zR31DAb93FEMM9rcE&t=2023-05-02T16%3A09%3A33.850Z" className="image" alt="A picture of me." />
       </div>
       <h1>Björn Noctiluca</h1>
       <div className="card">
