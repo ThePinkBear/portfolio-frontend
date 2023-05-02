@@ -11,6 +11,7 @@ interface Item {
 function PinkBear() {
   const [myApi, setMyApi] = useState<Item[] >([]);
   const API_URL = (import.meta.env.VITE_API_URL as string);
+  const IMAGE_URL : string = `https://mknawqiahttnfewbzfzq.supabase.co/storage/v1/object/sign/portfolio-images-pinkbear/pp_bw.JPG?token=${import.meta.env.VITE_API_BUCKET_TOKEN}`;
   useEffect(() => {
     const fetchData = () => {
       fetch(`https://${API_URL}/texts`)
@@ -22,7 +23,7 @@ function PinkBear() {
   return (
     <div className="App">
       <div>
-        <img src="https://mknawqiahttnfewbzfzq.supabase.co/storage/v1/object/sign/portfolio-images-pinkbear/pp_bw.JPG?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJwb3J0Zm9saW8taW1hZ2VzLXBpbmtiZWFyL3BwX2J3LkpQRyIsImlhdCI6MTY4MzA0Mzc3NCwiZXhwIjoxNzE0NTc5Nzc0fQ.RZhTzbQObe4vPTYCc2ssrCd8u1zR31DAb93FEMM9rcE&t=2023-05-02T16%3A09%3A33.850Z" className="image" alt="A picture of me." />
+      <img src={`${IMAGE_URL}`} className="image" alt="A picture of me." />
       </div>
       <h1>Björn Noctiluca</h1>
       <div className="card">
