@@ -14,7 +14,7 @@ function PinkBear() {
   const IMAGE_URL : string = `https://mknawqiahttnfewbzfzq.supabase.co/storage/v1/object/sign/portfolio-images-pinkbear/pp_bw.JPG?token=${import.meta.env.VITE_API_BUCKET_TOKEN}`;
   useEffect(() => {
     const fetchData = () => {
-      fetch(`https://${API_URL}/texts`)
+      fetch(`https://${API_URL}/test`)
         .then(response => response.json())
         .then(data => setMyApi(data));
     }
