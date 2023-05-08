@@ -21,7 +21,7 @@ function PinkBear() {
     fetchData();
   }, []);    
   return (
-    <main className="App">
+    <main>
       <img src={`${IMAGE_URL}`} className="image" alt="A picture of me." />
       <h1>Björn Noctiluca</h1>
         <h2>.Net Fullstack developer</h2>
