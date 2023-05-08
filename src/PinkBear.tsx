@@ -21,32 +21,23 @@ function PinkBear() {
     fetchData();
   }, []);    
   return (
-    <div className="App">
-      <div>
+    <main className="App">
       <img src={`${IMAGE_URL}`} className="image" alt="A picture of me." />
-      </div>
       <h1>Björn Noctiluca</h1>
-      <div className="card">
-        <h2>
-          .Net Fullstack developer
-        </h2>
-      </div>
-      <p className="read-the-docs">
-        More <Link to="/about">about me</Link> and my <Link to="/projects">projects</Link> coming soon! <br />
-      </p>
-      <p>can we reach the backend?:</p>
-      <div>
-        
-         {
-          myApi.map(item => (
-          <div key={item.id}>
-            <h2>{item.name}</h2>
-            <h2>{item.text}</h2>
-          </div>
-        ))} 
-        
-      </div>
-    </div>
+        <h2>.Net Fullstack developer</h2>
+          <p className="read-the-docs">
+            More <Link to="/about">about me</Link> and my <Link to="/projects">projects</Link> coming soon! <br />
+          </p>
+          <p>can we reach the backend?:</p>
+            {
+              myApi.map(item => (
+              <div key={item.id}>
+                <h2>{item.name}</h2>
+                <h2>{item.text}</h2>
+              </div>
+              ))
+            } 
+      </main>
   )
 }
 
