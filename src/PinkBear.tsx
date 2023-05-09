@@ -28,23 +28,25 @@ function PinkBear() {
     fetchPp();
   }, []);
   return (
-    <main>
+    <>
       <img src={`${image}`} className="image" alt="A picture of me." />
       <h1>Björn Noctiluca</h1>
       <h2>.Net Fullstack developer</h2>
         <p className="read-the-docs">
           More <Link to="/about">about me</Link> and my <Link to="/projects">projects</Link> coming soon! <br />
         </p>
+        <article>
         <p>can we reach the backend?:</p>
           {
             textPost.map(item => (
-            <div key={item.id}>
+            <section key={item.id}>
               <h2>{item.name}</h2>
               <h2>{item.text}</h2>
-            </div>
+            </section>
             ))
           } 
-    </main>
+          </article>
+    </>
   )
 }
 
