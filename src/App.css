@@ -1,21 +1,32 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+.main {
+  /* border-style: solid; */
+  display: grid;
+  grid-template-columns: 2fr 6fr;
+  grid-gap: 2rem;
+  justify-items: center;
 }
-
+.nav ul {
+  /* border-style: solid; */
+  width: 150px;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.nav li {
+  /* border-style: solid; */
+  list-style-type: none;
+  margin: 2px;
+}
+.section {
+  display: grid;
+  /* border-style: solid; */
+  justify-items: center;
+}
 .image {
   width: 12em;
 }
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-
-.read-the-docs {
+.gray-text {
   color: #888;
 }
