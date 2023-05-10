@@ -4,15 +4,18 @@ import PinkBear from './PinkBear'
 import About from './About'
 import Projects from './Projects'
 import { useState, useEffect } from 'react'
-interface Token {
-  access_token: string;
-  scope: string;
-  expires_in: number;
-  token_type: string;
-}
+import { Token } from './Interfaces'
+
 
 const App = () => {
   const [token, setToken] = useState<Token>({} as Token);
+  const tokenAvailable = () => {
+    if (token.access_token) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
   const getToken = async () => {
     const tokenRequestConfig = {
@@ -29,9 +32,9 @@ const App = () => {
     };
   
     try {
-      const response = await fetch('https://dev-cvwatk46okr8v6q2.uk.auth0.com/oauth/token', tokenRequestConfig);
-      const data = await response.json();
-      setToken(data);
+      fetch('https://dev-cvwatk46okr8v6q2.uk.auth0.com/oauth/token', tokenRequestConfig)
+        .then(response => response.json())
+        .then(data => setToken(data));
 
     } catch (error) {
       console.error(error);
@@ -41,7 +44,7 @@ const App = () => {
     getToken();
   }, []);
   
-  return (
+  return tokenAvailable() ? (
     <main className="main">
       <nav className="nav">
         <ul>
@@ -58,6 +61,10 @@ const App = () => {
         </Routes>
       </section>
     </main>
+  )
+  :
+  (
+    <h1>loading...</h1>
   )
 }
 

@@ -1,12 +1,6 @@
 import { useState, useEffect } from 'react';
 import './App.css';
-
-interface TextPost {
-  id: number;
-  name: string;
-  text: string;
-}
-
+import { TextPost } from './Interfaces';
 
 function PinkBear(token: any) {
   const [image, setImage] = useState<string>('');
