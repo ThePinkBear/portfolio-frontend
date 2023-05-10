@@ -44,7 +44,8 @@ const App = () => {
     getToken();
   }, []);
   
-  return tokenAvailable() ? (
+  return tokenAvailable() ? 
+  (
     <main className="main">
       <nav className="nav">
         <ul>
@@ -61,10 +62,12 @@ const App = () => {
         </Routes>
       </section>
     </main>
-  )
+  ) 
   :
   (
-    <h1>loading...</h1>
+    <main className="main">
+      <h1>loading...</h1>
+    </main>
   )
 }
 
