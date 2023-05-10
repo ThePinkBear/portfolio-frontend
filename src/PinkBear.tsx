@@ -17,19 +17,19 @@ function PinkBear(token: any) {
     headers: {Authorization: `Bearer ${token.token}`}
   };
 
+  const fetchData = () => {
+    fetch(`https://${API_URL}/api/texts/test`)
+      .then(response => response.json())
+      .then(data => setTextPost(data));
+    fetch(`https://${API_URL}/api/portfoliobackend/private`, options)
+      .then(response => response.text())
+      .then(data => setAuthenticated(data as string));
+    fetch(`https://${API_URL}/api/portfoliobackend/profile-pictures?image=pp_bw.JPG`)
+      .then(response => response.text())
+      .then(data => setImage(data as string));
+  }
+
   useEffect(() => {
-    const fetchData = () => {
-      fetch(`https://${API_URL}/api/texts/test`)
-        .then(response => response.json())
-        .then(data => setTextPost(data));
-      fetch(`https://${API_URL}/api/portfoliobackend/private`, options)
-        .then(response => response.text())
-        .then(data => setAuthenticated(data as string));
-      fetch(`https://${API_URL}/api/portfoliobackend/profile-pictures?image=pp_bw.JPG`)
-        .then(response => response.text())
-        .then(data => setImage(data as string));
-    }
-    
     fetchData();
   }, []);
 
