@@ -13,7 +13,8 @@ interface Token {
 
 const App = () => {
   const [token, setToken] = useState<Token>({} as Token);
-async function getToken() {
+
+  const getToken = async () => {
     const tokenRequestConfig = {
       method: 'POST',
       headers: {
@@ -31,6 +32,7 @@ async function getToken() {
       const response = await fetch('https://dev-cvwatk46okr8v6q2.uk.auth0.com/oauth/token', tokenRequestConfig);
       const data = await response.json();
       setToken(data);
+
     } catch (error) {
       console.error(error);
     }

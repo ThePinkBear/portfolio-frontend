@@ -28,7 +28,7 @@ function PinkBear(token: any) {
       .then(response => response.text())
       .then(data => setImage(data as string));
   }
-
+  
   useEffect(() => {
     fetchData();
   }, []);
