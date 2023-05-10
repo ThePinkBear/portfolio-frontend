@@ -3,9 +3,42 @@ import './App.css'
 import PinkBear from './PinkBear'
 import About from './About'
 import Projects from './Projects'
+import { useState, useEffect } from 'react'
+interface Token {
+  access_token: string;
+  scope: string;
+  expires_in: number;
+  token_type: string;
+}
 
 const App = () => {
-
+  const [token, setToken] = useState<Token>({} as Token);
+async function getToken() {
+    const tokenRequestConfig = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        client_id: '66WkEll8JLppzDlaCQnbIyj96qb85dpo',
+        client_secret: 'HXPqTDLMpWBnwwhpQWNUmMQQoFlWUHlvKTbQIrNyLYMCIO4XSF4AM6EpeIAg_jIs',
+        audience: 'https://pinkbearauthentication.se/',
+        grant_type: 'client_credentials'
+      }),
+    };
+  
+    try {
+      const response = await fetch('https://dev-cvwatk46okr8v6q2.uk.auth0.com/oauth/token', tokenRequestConfig);
+      const data = await response.json();
+      setToken(data);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  useEffect(() => {
+    getToken();
+  }, []);
+  
   return (
     <main className="main">
       <nav className="nav">
@@ -17,7 +50,7 @@ const App = () => {
       </nav>
       <section className="section">
         <Routes>
-          <Route path="/" element={<PinkBear />} />
+          <Route path="/" element={<PinkBear token={token.access_token} />} />
           <Route path="/about" element={<About />} />
           <Route path="/projects" element={<Projects />} />
         </Routes>

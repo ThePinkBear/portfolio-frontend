@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import './App.css';
 
 interface TextPost {
@@ -8,25 +7,32 @@ interface TextPost {
   text: string;
 }
 
-function PinkBear() {
-  const [textPost, setTextPost] = useState<TextPost[] >([]);
+
+function PinkBear(token: any) {
   const [image, setImage] = useState<string>('');
+  const [textPost, setTextPost] = useState<TextPost[] >([]);
+  const [authenticated, setAuthenticated] = useState<string>('');
   const API_URL = (import.meta.env.VITE_API_URL as string);
-  
+  const options = {
+    headers: {Authorization: `Bearer ${token.token}`}
+  };
+
   useEffect(() => {
     const fetchData = () => {
       fetch(`https://${API_URL}/api/texts/test`)
         .then(response => response.json())
         .then(data => setTextPost(data));
-    }
-    const fetchPp = () => {
+      fetch(`https://${API_URL}/api/portfoliobackend/private`, options)
+        .then(response => response.text())
+        .then(data => setAuthenticated(data as string));
       fetch(`https://${API_URL}/api/portfoliobackend/profile-pictures?image=pp_bw.JPG`)
         .then(response => response.text())
         .then(data => setImage(data as string));
     }
+    
     fetchData();
-    fetchPp();
   }, []);
+
   return (
     <>
       <img src={`${image}`} className="image" alt="A picture of me." />
@@ -45,6 +51,7 @@ function PinkBear() {
             </section>
             ))
           } 
+          <h5>{authenticated}</h5>
           </article>
     </>
   )
