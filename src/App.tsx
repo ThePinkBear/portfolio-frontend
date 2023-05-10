@@ -20,9 +20,9 @@ async function getToken() {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        client_id: '66WkEll8JLppzDlaCQnbIyj96qb85dpo',
-        client_secret: 'HXPqTDLMpWBnwwhpQWNUmMQQoFlWUHlvKTbQIrNyLYMCIO4XSF4AM6EpeIAg_jIs',
-        audience: 'https://pinkbearauthentication.se/',
+        client_id: `${import.meta.env.VITE_API_CLIENT_ID}`,
+        client_secret: `${import.meta.env.VITE_API_CLIENT_SECRET}`,
+        audience: `${import.meta.env.VITE_API_AUTH0_AUDIENCE}`,
         grant_type: 'client_credentials'
       }),
     };
