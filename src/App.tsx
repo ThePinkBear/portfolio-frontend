@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Link } from 'react-router-dom'
 import './App.css'
 import PinkBear from './PinkBear'
 import About from './About'
@@ -9,6 +9,9 @@ import { Token } from './Interfaces'
 
 const App = () => {
   const [token, setToken] = useState<Token>({} as Token);
+  const logo = `${import.meta.env.VITE_API_LOGO_TOKEN}` as string;
+  const API_URL = (import.meta.env.VITE_API_URL as string);
+
   const tokenAvailable = () => {
     if (token.access_token) {
       return true;
@@ -46,22 +49,23 @@ const App = () => {
   
   return tokenAvailable() ? 
   (
-    <main className="main">
-      <nav className="nav">
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/about">About me</a></li>
-          <li><a href="/projects">Projects</a></li>
-        </ul>
-      </nav>
-      <section className="section">
-        <Routes>
-          <Route path="/" element={<PinkBear token={token.access_token} />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/projects" element={<Projects />} />
-        </Routes>
-      </section>
-    </main>
+    <>
+      <header className="header">
+        <img src={`${logo}`} className="logo" alt="PinkBear logo"/>
+        <nav className="nav">
+          <Link to="/" className='active'>Home</Link>
+          <Link to="/about">About me</Link>
+          <Link to="/projects">Projects</Link>
+        </nav>
+      </header>
+      <main className="main">
+          <Routes>
+            <Route path="/" element={<PinkBear token={token.access_token} />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/projects" element={<Projects />} />
+          </Routes>
+      </main>
+    </>
   ) 
   :
   (

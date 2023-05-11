@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import './App.css';
+import './PinkBear.css';
 import { TextPost } from './Interfaces';
 
 function PinkBear(token: any) {
@@ -29,24 +30,25 @@ function PinkBear(token: any) {
 
   return (
     <>
-      <img src={`${image}`} className="image" alt="A picture of me." />
-      <h1>Björn Noctiluca</h1>
-      <h4>.Net Fullstack developer</h4>
-        <p className="gray-text">
-          More about me and my projects coming soon! <br />
-        </p>
-        <article>
+      <section className='pinkBear'>
+        <article className='pinkBear-content'>
+        <h3>Hi, my name is:</h3>
+        <h1>Björn Noctiluca</h1>
+        <h3>.Net Fullstack developer</h3>
+          <p>More about me and my projects coming soon!</p>
         <p>can we reach the backend?:</p>
           {
             textPost.map(item => (
-            <section key={item.id}>
+              <section key={item.id}>
               <h5>{item.name}</h5>
               <h5>{item.text}</h5>
-            </section>
+              </section>
             ))
           } 
-          <h5>{authenticated}</h5>
+          <h3>{authenticated}</h3>
           </article>
+            <img src={`${image}`} className="image" alt="A picture of me." />
+      </section>
     </>
   )
 }

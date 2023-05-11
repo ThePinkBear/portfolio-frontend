@@ -1,0 +1,25 @@
+.pinkBear {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pinkBear-content h1 {
+  font-size: 5.6rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.pinkBear-content h3 {
+  font-size: 3.2rem;
+  font-weight: 700;
+}
+.pinkBear-content h5 {
+  font-size: 2.2rem;
+}
+
+.pinkBear-content p {
+  font-size: 1.6rem;
+}
+.image {
+  width: 20vw;
+}
