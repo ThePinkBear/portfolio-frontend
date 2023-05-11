@@ -1,5 +1,6 @@
 import { Routes, Route, Link } from 'react-router-dom'
 import './App.css'
+import './index.css'
 import PinkBear from './PinkBear'
 import About from './About'
 import Projects from './Projects'
@@ -10,7 +11,7 @@ import { Token } from './Interfaces'
 const App = () => {
   const [token, setToken] = useState<Token>({} as Token);
   const logo = `${import.meta.env.VITE_API_LOGO_TOKEN}` as string;
-  const API_URL = (import.meta.env.VITE_API_URL as string);
+  const background = `${import.meta.env.VITE_API_BACKGROUND_IMAGE}` as string;
 
   const tokenAvailable = () => {
     if (token.access_token) {
@@ -58,7 +59,7 @@ const App = () => {
           <Link to="/projects">Projects</Link>
         </nav>
       </header>
-      <main className="main">
+      <main className="main" id="body">
           <Routes>
             <Route path="/" element={<PinkBear token={token.access_token} />} />
             <Route path="/about" element={<About />} />

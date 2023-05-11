@@ -16,8 +16,7 @@
   --bg-color: #3a2b41;
   --second-bg-color: #201c20;
   --text-color: #fff;
-
-
+  --background-image: url('');
 }
 html {
   font-size: 62.5%;
@@ -25,6 +24,9 @@ html {
 }
 
 body {
+  background-image: var(--background-image);
+  background-repeat: no-repeat;
+  background-size: cover;
   background: var(--second-bg-color);
   color: var(--text-color);
   display: grid;
