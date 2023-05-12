@@ -11,7 +11,7 @@ import { Token } from './Interfaces'
 const App = () => {
   const [token, setToken] = useState<Token>({} as Token);
   const logo = `${import.meta.env.VITE_API_LOGO_TOKEN}` as string;
-  const background = `${import.meta.env.VITE_API_BACKGROUND_IMAGE}` as string;
+  const background = `${import.meta.env.VITE_API_BACKGROUND_IMAGE_TOKEN}` as string;
 
   const tokenAvailable = () => {
     if (token.access_token) {
@@ -19,6 +19,10 @@ const App = () => {
     } else {
       return false;
     }
+  }
+  const element = document.getElementById('background');
+  if(element){
+    element.style.backgroundImage = `url(${background})`;
   }
 
   const getToken = async () => {

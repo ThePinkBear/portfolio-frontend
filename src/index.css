@@ -17,6 +17,7 @@
   --second-bg-color: #201c20;
   --text-color: #fff;
   --background-image: url('');
+  --pinkBear-color: #881daf;
 }
 html {
   font-size: 62.5%;
@@ -24,16 +25,27 @@ html {
 }
 
 body {
-  background-image: var(--background-image);
   background-repeat: no-repeat;
   background-size: cover;
-  background: var(--second-bg-color);
+  background-position: top;
   color: var(--text-color);
   display: grid;
   align-items: start;
   justify-content: center;
   min-width: 320px;
   min-height: 100vh;
+}
+.overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 50;
+}
+#root {
+  z-index: 100;
 }
 
 
