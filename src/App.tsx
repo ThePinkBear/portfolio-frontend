@@ -8,23 +8,14 @@ import { useState, useEffect } from 'react'
 import { Token } from './Interfaces'
 
 
+
 const App = () => {
   const [token, setToken] = useState<Token>({} as Token);
   const logo = `${import.meta.env.VITE_API_LOGO_TOKEN}` as string;
   const background = `${import.meta.env.VITE_API_BACKGROUND_IMAGE_TOKEN}` as string;
 
-  const tokenAvailable = () => {
-    if (token.access_token) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-  const element = document.getElementById('background');
-  if(element){
-    element.style.backgroundImage = `url(${background})`;
-  }
-
+  const tokenAvailable = () => Boolean(token.access_token);
+  
   const getToken = async () => {
     const tokenRequestConfig = {
       method: 'POST',
@@ -38,23 +29,31 @@ const App = () => {
         grant_type: 'client_credentials'
       }),
     };
-  
+    
     try {
       fetch('https://dev-cvwatk46okr8v6q2.uk.auth0.com/oauth/token', tokenRequestConfig)
-        .then(response => response.json())
-        .then(data => setToken(data));
-
+      .then(response => response.json())
+      .then(data => setToken(data));
+      
     } catch (error) {
       console.error(error);
     }
   }
   useEffect(() => {
-    getToken();
+    const element = document.getElementById('background');
+    if(element){
+      element.style.backgroundImage = `url(${background})`;
+    }
+    if(!tokenAvailable())
+    {
+      getToken();
+    }
   }, []);
   
   return tokenAvailable() ? 
   (
     <>
+    <div className='header-overlay'></div>
       <header className="header">
         <img src={`${logo}`} className="logo" alt="PinkBear logo"/>
         <nav className="nav">
