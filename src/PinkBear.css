@@ -56,3 +56,9 @@
   font-size:3em;
   cursor: pointer;
 }
+.gitHub:hover {
+  color: rgb(245, 242, 245);
+}
+.linkedIn:hover {
+  color: rgb(251, 247, 251);
+}
