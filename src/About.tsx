@@ -7,7 +7,6 @@ import { TextPost } from './Interfaces'
 const About = () => {
 
   const [textPost, setTextPost] = useState<TextPost[] >([]);
-  // const [authenticated, setAuthenticated] = useState<string>('');
   const API_URL = (import.meta.env.VITE_API_URL as string);
   const about = textPost.find(tp => tp.name === "about")?.text as string;
   const abouts = about.split('\n');

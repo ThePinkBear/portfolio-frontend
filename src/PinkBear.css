@@ -42,3 +42,17 @@
 .pinkBear-content a:hover {
   color: var(--pinkBear-color);
 }
+.rIcons {
+  margin-top: 3em;
+  display: flex;
+  color: rgb(215, 43, 224);
+}
+.gitHub {
+  font-size:3em;
+  cursor: pointer;
+}
+.linkedIn {
+  margin-left: 20px;
+  font-size:3em;
+  cursor: pointer;
+}
