@@ -7,18 +7,20 @@ import { TextPost } from './Interfaces'
 const About = () => {
 
   const [textPost, setTextPost] = useState<TextPost[] >([]);
+  const [abouts, setAbouts] = useState<string[] >([]);
   const API_URL = (import.meta.env.VITE_API_URL as string);
-  const about = textPost.find(tp => tp.name === "about")?.text as string;
-  const abouts = about.split('\n');
-
+  const profile = textPost.find(tp => tp.name === "about")?.text.split('\n') as string[];
+  
+  
   const fetchData = () => {
     fetch(`https://${API_URL}/api/texts/test`)
-      .then(response => response.json())
-      .then(data => setTextPost(data));
+    .then(response => response.json())
+    .then(data => setTextPost(data));
   }
   
   useEffect(() => {
     fetchData();
+    setAbouts(profile);
   }, []);
 
   return (
@@ -27,9 +29,12 @@ const About = () => {
         <Link to="/">back</Link>
         <h3>About me:</h3>
         <p>
-          {abouts.map((about, index) => (
-            <span key={index}>{about}<br/></span>
-          ))}
+          { abouts ?
+          abouts.map((about, index) => (
+            <span key={index}>{about}<br/></span> 
+          ))
+          :
+          <h1>Loading...</h1>}
         </p>
       </article>
     </>

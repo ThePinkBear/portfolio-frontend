@@ -16,38 +16,13 @@ const App = () => {
 
   const tokenAvailable = () => true /*Boolean(token.access_token*/;
   
-  const getToken = async () => {
-    // const tokenRequestConfig = {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify({
-    //     client_id: `${import.meta.env.VITE_API_CLIENT_ID}`,
-    //     client_secret: `${import.meta.env.VITE_API_CLIENT_SECRET}`,
-    //     audience: `${import.meta.env.VITE_API_AUTH0_AUDIENCE}`,
-    //     grant_type: 'client_credentials'
-    //   }),
-    // };
-    
-    // try {
-    //   fetch('https://dev-cvwatk46okr8v6q2.uk.auth0.com/oauth/token', tokenRequestConfig)
-    //   .then(response => response.json())
-    //   .then(data => setToken(data));
-      
-    // } catch (error) {
-    //   console.error(error);
-    // }
-  }
+  
   useEffect(() => {
     const element = document.getElementById('background');
     if(element){
       element.style.backgroundImage = `url(${background})`;
     }
-    // if(!tokenAvailable())
-    // {
-    //   getToken();
-    // }
+    
   }, []);
   
   return tokenAvailable() ? 
