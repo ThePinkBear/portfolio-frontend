@@ -36,7 +36,7 @@ function PinkBear(token: any) {
         <h1>Björn Noctiluca</h1>
         <h3>I am a <span>.Net Fullstack developer</span></h3>
           <p>More about me and my projects coming soon!</p>
-        <h5>{textPost.find((tp) => tp.name === "Why yes")?.text}</h5> 
+        <h5>{textPost.find((tp) => tp.name === "home")?.text}</h5> 
           {/* <h3>{authenticated}</h3> */}
           </article>
           <img src={`${image}`} className="image" alt="A picture of me." />

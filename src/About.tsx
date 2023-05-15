@@ -1,8 +1,25 @@
 import { Link } from 'react-router-dom'
 import './App.css'
 import './PinkBear.css'
+import { useState, useEffect } from 'react'
+import { TextPost } from './Interfaces'
 
 const About = () => {
+
+  const [textPost, setTextPost] = useState<TextPost[] >([]);
+  // const [authenticated, setAuthenticated] = useState<string>('');
+  const API_URL = (import.meta.env.VITE_API_URL as string);
+  
+
+  const fetchData = () => {
+    fetch(`https://${API_URL}/api/texts/test`)
+      .then(response => response.json())
+      .then(data => setTextPost(data));
+  }
+  
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   return (
     <>
@@ -10,7 +27,7 @@ const About = () => {
         <Link to="/">back</Link>
         <h3>About me:</h3>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium neque nulla, aspernatur debitis totam ipsam vel qui explicabo repellendus sapiente iusto tempora iure, dolorem distinctio quas commodi quidem architecto illo consequatur. Molestias enim, ducimus assumenda ratione iusto animi beatae distinctio quisquam voluptate adipisci aspernatur qui labore quae, corporis nesciunt. Iusto exercitationem cumque pariatur modi provident ullam quaerat tenetur enim fuga expedita, doloremque quidem libero sint alias quas dolorem optio aliquid quam eveniet aspernatur ipsam! Ipsam, totam! Commodi, natus at quas mollitia laboriosam totam quisquam fugiat temporibus non, voluptatum sit enim quibusdam rem culpa laborum sunt est ullam itaque in sint.
+          {textPost.find(tp => tp.name === "about")?.text}
         </p>
       </article>
     </>
