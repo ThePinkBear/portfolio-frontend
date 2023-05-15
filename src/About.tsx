@@ -19,8 +19,10 @@ const About = () => {
   }
   
   useEffect(() => {
-    fetchData();
-    setAbouts(profile);
+    if (!textPost.length){
+      fetchData();
+      setAbouts(profile);
+    }
   }, []);
 
   return (
