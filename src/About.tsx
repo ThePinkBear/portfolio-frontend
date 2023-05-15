@@ -9,7 +9,8 @@ const About = () => {
   const [textPost, setTextPost] = useState<TextPost[] >([]);
   // const [authenticated, setAuthenticated] = useState<string>('');
   const API_URL = (import.meta.env.VITE_API_URL as string);
-  
+  const about = textPost.find(tp => tp.name === "about")?.text as string;
+  const abouts = about.split('\n');
 
   const fetchData = () => {
     fetch(`https://${API_URL}/api/texts/test`)
@@ -27,7 +28,9 @@ const About = () => {
         <Link to="/">back</Link>
         <h3>About me:</h3>
         <p>
-          {textPost.find(tp => tp.name === "about")?.text}
+          {abouts.map((about, index) => (
+            <span key={index}>{about}<br/></span>
+          ))}
         </p>
       </article>
     </>
