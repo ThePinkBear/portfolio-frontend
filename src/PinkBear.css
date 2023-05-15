@@ -50,11 +50,13 @@
 .gitHub {
   font-size:3em;
   cursor: pointer;
+  transition: .3s;
 }
 .linkedIn {
   margin-left: 20px;
   font-size:3em;
   cursor: pointer;
+  transition: .3s;
 }
 .gitHub:hover {
   color: rgb(245, 242, 245);
