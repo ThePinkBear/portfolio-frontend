@@ -7,6 +7,9 @@
 // From PinkBear page
 const [authenticated, setAuthenticated] = useState<string>('');
 
+const options = {
+    headers: {Authorization: `Bearer ${token.token}`}
+  };
 
 fetch(`https://${API_URL}/api/portfoliobackend/private`, options)
        .then(response => response.text())

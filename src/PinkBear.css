@@ -4,6 +4,17 @@
   align-items: center;
 }
 
+.image {
+  width: 20vw;
+  border-radius: 9%;
+}
+.pinkBear-content{
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  margin: 0 6rem;
+  position: relative;
+}
 .pinkBear-content h1 {
   font-size: 5.6rem;
   font-weight: 700;
@@ -21,15 +32,19 @@
 .pinkBear-content p {
   font-size: 1.6rem;
 }
-.image {
-  width: 20vw;
-  border-radius: 9%;
+.pinkBear-content span {
+  position: relative;
+  display: inline-block;
+  animation: flip 3s infinite;
+  animation-delay: calc(.7s * var(--i))
 }
-.pinkBear-content{
-  display: flex;
-  flex-direction: column;
-  align-items: left;
-  margin: 0 6rem;
+@keyframes flip {
+  0%,80% {
+    transform: rotateY(360deg) 
+  }
+}
+.pinkBear-content span {
+  color: rgb(215, 43, 224);
 }
 .pinkBear-content a {
   color: #f06fd8;
