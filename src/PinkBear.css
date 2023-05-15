@@ -11,6 +11,7 @@
 .pinkBear-content{
   display: flex;
   flex-direction: column;
+  width: 70vw;
   align-items: left;
   margin: 0 6rem;
   position: relative;
