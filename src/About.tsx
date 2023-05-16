@@ -17,6 +17,7 @@ const About = () => {
   useEffect(() => {
     fetchData();
   }, []);
+  
   const about = textPost.find(tp => tp.name === "about")?.text.split('\n') as string[];
 
   if(!about) return <h1>loading...</h1>

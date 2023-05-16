@@ -3,11 +3,12 @@
   justify-content: center;
   align-items: center;
 }
-
-.image {
-  width: 20vw;
-  border-radius: 9%;
+.pinkBear {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
 .pinkBear-content{
   display: flex;
   flex-direction: column;
@@ -33,17 +34,9 @@
 .pinkBear-content p {
   font-size: 1.6rem;
 }
-.pinkBear-content span {
-  position: relative;
-  display: inline-block;
-  animation: flip 3s infinite;
-  animation-delay: calc(.7s * var(--i))
-}
-@keyframes flip {
-  0%,80% {
-    transform: rotateY(360deg) 
-  }
-}
+
+
+
 .pinkBear-content span {
   color: rgb(215, 43, 224);
 }
@@ -79,4 +72,8 @@
 }
 .linkedIn:hover {
   color: rgb(251, 247, 251);
+}
+.image {
+  width: 30vw;
+  border-radius: 9%;
 }
